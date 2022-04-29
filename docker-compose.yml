@@ -1,0 +1,37 @@
+version: "3.9"
+services:
+
+  database:
+    image: postgres:latest
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - database:/var/lib/postgresql/data/db
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: dbuser
+      POSTGRES_PASSWORD: dbpass
+      PGDATA: /var/lib/postgresql/data/db
+
+  keycloak:
+    build: ./keycloak
+    ports:
+      - "127.0.0.1:8443:8443"
+    volumes:
+      - ./keycloak/keystore.jks:/opt/keycloak/conf/server.keystore
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin123!
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://database:5432/keycloak
+      KC_DB_USERNAME: dbuser
+      KC_DB_PASSWORD: dbpass
+      PROXY_ADDRESS_FORWARDING: true
+      # replace hostnames below with your domain from the certificate in server.keystore
+      KC_HOSTNAME: keycloak.coffeebeans.at
+      KEYCLOAK_FRONTEND_URL: https://keycloak.coffeebeans.at:8443/auth
+    depends_on:
+      - database
+
+volumes:
+  database:
