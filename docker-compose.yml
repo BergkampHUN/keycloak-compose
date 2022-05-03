@@ -1,6 +1,12 @@
 version: "3.9"
 services:
 
+  smtp:
+    image: catatnight/postfix:latest
+    environment:
+      maildomain: mail.coffeebeans.at
+      smtp_user: smtp:pass123
+
   database:
     image: postgres:latest
     ports:
@@ -33,6 +39,7 @@ services:
       KEYCLOAK_FRONTEND_URL: https://keycloak.coffeebeans.at:8443/auth
     depends_on:
       - database
+      - smtp
 
 volumes:
   database:
