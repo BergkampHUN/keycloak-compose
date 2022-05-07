@@ -4,3 +4,5 @@
 *.jks
 *.p12
 .DS_Store
+nginx/html/*.html
+!nginx/html/backend-not-found.html
