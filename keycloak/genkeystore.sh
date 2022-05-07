@@ -14,12 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-if [ -e keystore.jks ]; then
-  echo "exiting(1): keystore exists"
-  exit 1
-fi
-echo "just type password wherever prompted for a password"
-openssl pkcs12 -export -out pkcs.p12 -inkey privkey.pem -in cert.pem -certfile chain.pem -name letsencrypt
-keytool -importkeystore -destkeystore keystore.jks -srckeystore pkcs.p12 \
-        -srcstoretype PKCS12 -alias letsencrypt
+KS=keystore.jks
+P12=pkcs.p12
+echo "delete ${KS} and ${P12} if existent"
+rm -f ${KS} ${P12}
+PASSWORD=password
+KEY_ALIAS=letsencrypt
+echo "creating ${P12}"
+openssl pkcs12 -export -inkey privkey.pem -in cert.pem -certfile chain.pem \
+        -name ${KEY_ALIAS} -password pass:${PASSWORD} -out ${P12}
+echo "creating ${KS}"
+keytool -importkeystore -destkeystore ${KS} -deststorepass ${PASSWORD} -srckeystore ${P12} \
+        -srcstoretype PKCS12 -srcstorepass ${PASSWORD} -alias ${KEY_ALIAS}
+echo "done"
