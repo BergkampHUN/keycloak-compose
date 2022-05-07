@@ -36,7 +36,7 @@ services:
       PROXY_ADDRESS_FORWARDING: true
       # replace hostnames below with your domain from the certificate in server.keystore
       KC_HOSTNAME: keycloak.coffeebeans.at
-      KEYCLOAK_FRONTEND_URL: https://keycloak.coffeebeans.at:8443/auth
+      KEYCLOAK_FRONTEND_URL: https://keycloak.coffeebeans.at:8443
     depends_on:
       - database
       - smtp
