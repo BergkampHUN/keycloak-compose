@@ -4,5 +4,6 @@
 *.jks
 *.p12
 .DS_Store
-nginx/html/*.html
-!nginx/html/backend-not-found.html
+nginx/html/**/*.html
+!nginx/html/keycloak/.well-known/index.html
+!nginx/html/default/backend-not-found.html
