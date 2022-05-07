@@ -3,12 +3,14 @@ services:
 
   smtp:
     image: catatnight/postfix:latest
+    restart: always
     environment:
       maildomain: mail.coffeebeans.at
       smtp_user: smtp:pass123
 
   database:
     image: postgres:latest
+    restart: always
     ports:
       - "127.0.0.1:5433:5432"
     volumes:
@@ -21,6 +23,7 @@ services:
 
   keycloak:
     build: ./keycloak
+    restart: always
     ports:
       - "127.0.0.1:8443:8443"
     volumes:
