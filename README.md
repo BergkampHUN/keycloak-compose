@@ -7,13 +7,19 @@ All SSL support is based on let's encrypt certificates which are not included in
 
 ## Getting Started
 
-- Download your SSL keys+certificates in keycloak and nginx/certs folder.
+- Place your SSL keys+certificates in keycloak and nginx/certs folder. See the hint below if you don't have them.
 - Run keycloak/genkeystore.sh from within the keycloak folder.
 - Adapt server_name in nginx/conf.d/keycloak.conf
 - Adapt services.smtp.environment.maildomain in docker-compose.yml
 - Adapt services.keycloak.environment.KC_HOSTNAME and services.keycloak.environment.KEYCLOAK_FRONTEND_URL in
   docker-compose.yml
 - Start compose: `docker compose up -d`
+
+HINT: Let's encrypt certificates can be retrieved very easily with
+certbot. [Here](https://serverspace.io/support/help/how-to-get-lets-encrypt-ssl-on-ubuntu/) you can find a setup
+guide for ubuntu. After retrieving your certificate all required files are placed under /etc/letsencrypt/live/<domain>/.
+These files are required BEFORE you start the steps. Be warned that the proxy within this project is not configured to
+be used with certbot.
 
 ## keycloak
 
