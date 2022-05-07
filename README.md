@@ -1,4 +1,4 @@
-# 2FA
+# keycloak-compose
 
 This project helps to run a keycloak instance with proper SSL support. It also helps to place a nginx proxy in front
 of it which is also able to host .well-known or anything else you want to.
