@@ -6,6 +6,7 @@
     <div id="kc-form">
       <div id="kc-form-wrapper">
         <#if realm.password>
+            <p class="login-subtitle">Bitte geben Sie Ihre Benutzerdaten ein.</p>
             <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                 <#if !usernameHidden??>
                     <div class="${properties.kcFormGroupClass!}">

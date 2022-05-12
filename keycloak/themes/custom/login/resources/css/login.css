@@ -637,6 +637,7 @@ ul#kc-totp-supported-apps {
     padding: 20px 14px;
     position: relative;
     z-index: 2;
+    margin: 0 10px;
 }
 
 .login-pf-page {
@@ -644,6 +645,7 @@ ul#kc-totp-supported-apps {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
 }
 
@@ -667,4 +669,22 @@ ul#kc-totp-supported-apps {
 
 #kc-info {
     margin: 0;
+}
+
+h1#kc-page-title {
+    font-size: 24px;
+    color: #72767b;
+}
+
+.login-subtitle {
+    text-align: center;
+}
+
+.login-pf-page .login-pf-header {
+    margin-bottom: 0;
+}
+
+.login-subtitle {
+    margin-top: -20px;
+    margin-bottom: 20px;
 }
