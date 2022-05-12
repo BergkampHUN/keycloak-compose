@@ -6,8 +6,7 @@
 }
 
 .login-pf body {
-    /*background: url("../img/keycloak-bg.png") no-repeat center center fixed;*/
-    background: dodgerblue;
+    background: url("../img/bg-image.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 100%;
 }
@@ -594,3 +593,77 @@ ul#kc-totp-supported-apps {
     margin-bottom: 16px;
 }
 /* End Recovery codes */
+.title-image {
+    width: 62px;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.login-pf body {
+    background: url("../img/bg-image.jpg") no-repeat center center cover;
+}
+
+.pf-c-button.pf-m-primary {
+    background-color: #E2002A;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+
+.pf-c-form-control {
+    padding: 16px 14px;
+    font-size: 14px;
+    border-color: #F0F0F0;
+    border-radius: 3px;
+}
+
+.pf-c-form-control:focus {
+    padding: 16px 14px;
+}
+
+.pf-c-form-control:not(textarea) {
+    height: auto;
+}
+
+.card-pf {
+    max-width: 326px;
+    border-top: 0;
+    border-color: transparent;
+}
+
+.login-pf-page .card-pf {
+    padding: 20px 14px;
+    position: relative;
+    z-index: 2;
+}
+
+.login-pf-page {
+    padding-top: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.login-pf-page::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.infra-logo {
+    position: absolute;
+    z-index: 2;
+    bottom: 40px;
+    left: 40px;
+    width: 130px;
+}
+
+#kc-info {
+    margin: 0;
+}
